@@ -56,6 +56,26 @@
     <wiremock.version>2.27.2</wiremock.version>
   </properties>
 
+  <profiles>
+    <profile>
+      <id>docker</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-checkstyle-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>checkstyle</id>
+                <phase>none</phase>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
   <build>
     <pluginManagement>
       <plugins>
@@ -176,7 +196,7 @@
           </dependencies>
           <executions>
             <execution>
-              <id>validate</id>
+              <id>checkstyle</id>
               <phase>validate</phase>
               <goals>
                 <goal>check</goal>
