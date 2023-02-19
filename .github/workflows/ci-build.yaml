@@ -25,11 +25,17 @@ jobs:
       - name: Maven Settings
         uses: s4u/maven-settings-action@v2
         with:
-          servers: '[{"id": "github", "username": "${GITHUB_USER_REF}", "password": "${GITHUB_TOKEN_REF}"}]'
+          servers: '[
+            {
+              "id": "github", 
+              "username": "${GITHUB_USER_REF}", 
+              "password": "${GITHUB_TOKEN_REF}"
+            }
+          ]'
           githubServer: false
 
       - name: Build with Maven
-        run: mvn -B -Pgithub package --file pom.xml
+        run: mvn -B package -Pdocker
         env:
           GITHUB_USER_REF: ${{ secrets.GH_USER }}
           GITHUB_TOKEN_REF: ${{ secrets.GH_TOKEN }}
