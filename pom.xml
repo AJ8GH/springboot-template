@@ -64,19 +64,13 @@
     <wiremock.version>2.27.2</wiremock.version>
   </properties>
 
-  <repositories>
-    <repository>
+  <pluginRepositories>
+    <pluginRepository>
       <id>github</id>
       <name>GitHub AJ8GH Apache Maven Packages</name>
       <url>https://maven.pkg.github.com/aj8gh/checkstyle</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-    </repository>
-  </repositories>
+    </pluginRepository>
+  </pluginRepositories>
 
   <profiles>
     <profile>
@@ -238,14 +232,6 @@
       </plugin>
     </plugins>
   </build>
-
-  <dependencies>
-    <dependency>
-      <groupId>io.github.aj8gh</groupId>
-      <artifactId>checkstyle</artifactId>
-      <version>${checkstyle.version}</version>
-    </dependency>
-  </dependencies>
 
   <dependencyManagement>
     <dependencies>
