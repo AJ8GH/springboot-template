@@ -1,4 +1,4 @@
-package io.github.aj8gh.newproject;
+package io.github.aj8gh.template;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;

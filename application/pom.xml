@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>io.github.aj8gh</groupId>
-    <artifactId>new-project-template</artifactId>
+    <artifactId>spring-boot-template</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
 
@@ -41,6 +41,10 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
     </dependency>
   </dependencies>
 </project>

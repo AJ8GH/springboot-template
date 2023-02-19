@@ -4,8 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <parent>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <relativePath/>
+    <version>2.7.3</version>
+  </parent>
+
   <groupId>io.github.aj8gh</groupId>
-  <artifactId>new-project-template</artifactId>
+  <artifactId>spring-boot-template</artifactId>
   <name>${project.artifactId}</name>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
@@ -25,11 +32,11 @@
     </project.reporting.outputEncoding>
 
     <!-- Jar -->
-    <default.package>newproject</default.package>
-    <final.name>${project.artifactId}</final.name>
-    <final.name.sb>${project.artifactId}-sb</final.name.sb>
+    <default.package>template</default.package>
     <start.class>Application</start.class>
     <main.class>${project.groupId}.${default.package}.${start.class}</main.class>
+    <final.name>${project.artifactId}</final.name>
+    <final.name.sb>${project.artifactId}-sb</final.name.sb>
 
     <!-- Checkstyle -->
     <checkstyle.config.location>checkstyle.xml</checkstyle.config.location>
