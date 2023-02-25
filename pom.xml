@@ -59,6 +59,7 @@
     <lombok.version>1.18.26</lombok.version>
     <maven.assembly.version>3.4.2</maven.assembly.version>
     <maven.checkstyle.version>3.2.1</maven.checkstyle.version>
+    <maven.enforcer.version>3.0.0</maven.enforcer.version>
     <maven.surefire.version>3.0.0-M9</maven.surefire.version>
     <mockito.version>5.1.1</mockito.version>
     <slf4j.version>2.0.6</slf4j.version>
@@ -204,6 +205,35 @@
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-enforcer-plugin</artifactId>
+          <version>${maven.enforcer.version}</version>
+          <executions>
+            <execution>
+              <id>enforce-versions</id>
+              <goals>
+                <goal>enforce</goal>
+              </goals>
+              <configuration>
+                <rules>
+                  <bannedDependencies>
+                    <searchTransitive>true</searchTransitive>
+                    <excludes>
+                      <exclude>org.apache.logging.log4j:*:(,2.17.1]</exclude>
+                    </excludes>
+                  </bannedDependencies>
+                  <dependencyConvergence/>
+                  <banDuplicatePomDependencyVersions/>
+                  <requireJavaVersion>
+                    <version>[17,)</version>
+                  </requireJavaVersion>
+                </rules>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-checkstyle-plugin</artifactId>
           <version>${maven.checkstyle.version}</version>
           <dependencies>
@@ -232,6 +262,10 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+      </plugin>
     </plugins>
   </build>
 
@@ -257,7 +291,6 @@
         </exclusions>
         <version>${springboot.version}</version>
       </dependency>
-
 
       <!-- Util -->
       <dependency>

@@ -12,9 +12,9 @@ public class Application {
   private static final String HELLO_WORLD = new HelloWorld().helloWorld();
 
   public static void main(String[] args) {
+    SpringApplication.run(Application.class, args);
     log.info(HELLO_WORLD);
     log.warn(HELLO_WORLD);
     log.error(HELLO_WORLD);
-    SpringApplication.run(Application.class, args);
   }
 }
