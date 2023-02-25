@@ -13,7 +13,7 @@ Configuration:
       - name: fileAppender
         value: serverLog
       - name: consolePattern
-        value: "%style{%d}{white}  %highlight{%-5p} %style{%pid}{magenta} %style{---}{blue} %style{[%t]}{white} %style{%c{1.}}{cyan} : %m%n"
+        value: "%style{%d}{white}  %highlight{%-5p} %style{%pid}{magenta} %style{---}{white} %style{[%t]}{white} %style{%c{1.}}{cyan} : %m%n"
       - name: filePattern
         value: "%d %-5p %pid --- [%t] %c{1.} : %m%n"
       - name: appLogRoot

@@ -320,11 +320,13 @@
         <groupId>org.assertj</groupId>
         <artifactId>assertj-core</artifactId>
         <version>${assertj.version}</version>
+        <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.awaitility</groupId>
         <artifactId>awaitility</artifactId>
         <version>${awaitility.version}</version>
+        <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.mockito</groupId>
@@ -336,6 +338,13 @@
         <groupId>com.github.tomakehurst</groupId>
         <artifactId>wiremock</artifactId>
         <version>${wiremock.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <version>${springboot.version}</version>
+        <scope>test</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
