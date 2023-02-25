@@ -4,26 +4,28 @@ Configuration:
 
   properties:
     property:
+      - name: level
+        value: INFO
+      - name: defaultLogger
+        value: io.github.aj8gh
+      - name: consoleAppender
+        value: console
+      - name: fileAppender
+        value: serverLog
+      - name: consolePattern
+        value: "%style{%d}{white}  %highlight{%-5p} %style{%pid}{magenta} %style{---}{blue} %style{[%t]}{white} %style{%c{1.}}{cyan} : %m%n"
+      - name: filePattern
+        value: "%d %-5p %pid --- [%t] %c{1.} : %m%n"
       - name: appLogRoot
         value: ./logs/
-      - name: logPattern
-        value: "%d %c{1.} [%t] %level - %m%n"
       - name: fileName
         value: server.log
-      - name: filePattern
+      - name: fileNamePattern
         value: server-%d{yyyy-MM-dd}.log
       - name: rolloverMax
         value: 5
       - name: rolloverSize
         value: 1MB
-      - name: level
-        value: INFO
-      - name: consoleAppender
-        value: console
-      - name: fileAppender
-        value: serverLog
-      - name: defaultLogger
-        value: io.github.aj8gh
       - name: additivity
         value: false
 
@@ -32,14 +34,14 @@ Configuration:
       name: ${consoleAppender}
       target: SYSTEM_OUT
       PatternLayout:
-        Pattern: ${logPattern}
+        Pattern: ${consolePattern}
 
     RollingFile:
       - name: ${fileAppender}
         fileName: ${appLogRoot}${fileName}
-        filePattern: ${appLogRoot}${filePattern}
+        filePattern: ${appLogRoot}${fileNamePattern}
         PatternLayout:
-          Pattern: ${logPattern}
+          Pattern: ${filePattern}
         DefaultRolloverStrategy:
           max: ${rolloverMax}
         Policies:
