@@ -41,4 +41,11 @@
       </plugin>
     </plugins>
   </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.github.aj8gh</groupId>
+      <artifactId>application</artifactId>
+    </dependency>
+  </dependencies>
 </project>

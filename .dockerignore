@@ -1,0 +1,90 @@
+# Project files #
+#################
+**/*.md
+run.sh
+lombok.config
+Dockerfile
+docker-compose.yaml
+coverage
+.github
+.gitignore
+.git
+**/test/**/*
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.pyc
+*.pyo
+*.out
+target
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.msi
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+**/log
+**/logs
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Temporary files #
+###################
+*.bak
+*.swp
+*.swo
+*~
+*#
+
+# IDE files #
+#############
+.vscode
+.idea
+.iml
+*.sublime-workspace
+**/*.iml
+*.iml
+
+# Version management files #
+############################
+.java-version
+.jenv-version
+.sdkmanrc
+
+# Secret files #
+################
+*.pem
+*.cer
+*.der
+*.crt
+*.key
+*.key.2

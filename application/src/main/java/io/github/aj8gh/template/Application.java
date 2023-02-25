@@ -9,10 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Application {
 
-  private static final HelloWorld HELLO_WORLD = new HelloWorld();
-
   public static void main(String[] args) {
-    log.info(HELLO_WORLD.helloWorld());
+    log.info(new HelloWorld().helloWorld());
+
     SpringApplication.run(Application.class);
   }
 }

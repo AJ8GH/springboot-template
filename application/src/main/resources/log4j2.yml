@@ -1,0 +1,61 @@
+Configuration:
+  name: LoggingConfig
+  status: WARN
+
+  properties:
+    property:
+      - name: appLogRoot
+        value: ./logs/
+      - name: logPattern
+        value: "%d %c{1.} [%t] %level - %m%n"
+      - name: fileName
+        value: server.log
+      - name: filePattern
+        value: server-%d{yyyy-MM-dd}.log
+      - name: rolloverMax
+        value: 5
+      - name: rolloverSize
+        value: 1MB
+      - name: level
+        value: INFO
+      - name: consoleAppender
+        value: console
+      - name: fileAppender
+        value: serverLog
+      - name: defaultLogger
+        value: io.github.aj8gh
+      - name: additivity
+        value: false
+
+  Appenders:
+    Console:
+      name: ${consoleAppender}
+      target: SYSTEM_OUT
+      PatternLayout:
+        Pattern: ${logPattern}
+
+    RollingFile:
+      - name: ${fileAppender}
+        fileName: ${appLogRoot}${fileName}
+        filePattern: ${appLogRoot}${filePattern}
+        PatternLayout:
+          Pattern: ${logPattern}
+        DefaultRolloverStrategy:
+          max: ${rolloverMax}
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: ${rolloverSize}
+
+  Loggers:
+    logger:
+      - name: ${defaultLogger}
+        level: ${level}
+        additivity: ${additivity}
+        AppenderRef:
+          - ref: ${consoleAppender}
+          - ref: ${fileAppender}
+
+    Root:
+      level: ${level}
+      AppenderRef:
+        ref: ${consoleAppender}

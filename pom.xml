@@ -8,7 +8,7 @@
     <artifactId>spring-boot-starter-parent</artifactId>
     <groupId>org.springframework.boot</groupId>
     <relativePath/>
-    <version>2.7.3</version>
+    <version>3.0.2</version>
   </parent>
 
   <groupId>io.github.aj8gh</groupId>
@@ -49,18 +49,20 @@
     <jacoco.target>0.8</jacoco.target>
 
     <!-- Versions -->
-    <assertj.version>3.22.0</assertj.version>
+    <assertj.version>3.24.2</assertj.version>
     <awaitility.version>4.2.0</awaitility.version>
     <checkstyle.version>0.0.3</checkstyle.version>
     <jacoco.version>0.8.8</jacoco.version>
-    <junit.version>5.9.0</junit.version>
-    <lombok.version>1.18.24</lombok.version>
-    <maven.assembly.version>3.3.0</maven.assembly.version>
-    <maven.checkstyle.version>3.2.0</maven.checkstyle.version>
-    <maven.surefire.version>3.0.0-M7</maven.surefire.version>
-    <mockito.version>4.8.0</mockito.version>
-    <slf4j.version>2.0.3</slf4j.version>
-    <springboot.version>2.7.3</springboot.version>
+    <jackson.version>2.14.2</jackson.version>
+    <junit.version>5.9.2</junit.version>
+    <log4j.version>2.20.0</log4j.version>
+    <lombok.version>1.18.26</lombok.version>
+    <maven.assembly.version>3.4.2</maven.assembly.version>
+    <maven.checkstyle.version>3.2.1</maven.checkstyle.version>
+    <maven.surefire.version>3.0.0-M9</maven.surefire.version>
+    <mockito.version>5.1.1</mockito.version>
+    <slf4j.version>2.0.6</slf4j.version>
+    <springboot.version>3.0.2</springboot.version>
     <wiremock.version>2.27.2</wiremock.version>
   </properties>
 
@@ -247,8 +249,15 @@
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
+        <exclusions>
+          <exclusion>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+          </exclusion>
+        </exclusions>
         <version>${springboot.version}</version>
       </dependency>
+
 
       <!-- Util -->
       <dependency>
@@ -257,9 +266,14 @@
         <version>${lombok.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-simple</artifactId>
-        <version>${slf4j.version}</version>
+        <groupId>com.fasterxml.jackson.dataformat</groupId>
+        <artifactId>jackson-dataformat-yaml</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>${jackson.version}</version>
       </dependency>
 
       <!-- Test -->
@@ -295,7 +309,21 @@
         <artifactId>spring-boot-starter-test</artifactId>
         <version>${springboot.version}</version>
       </dependency>
-
     </dependencies>
   </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-log4j2</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.dataformat</groupId>
+      <artifactId>jackson-dataformat-yaml</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+    </dependency>
+  </dependencies>
 </project>
