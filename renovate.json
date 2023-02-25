@@ -1,11 +1,19 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "ignoreDeps": [
-    "io.github.aj8gh:spring-boot-template",
-    "io.github.aj8gh:checkstyle"
-  ],
   "extends": [
     "config:base",
     "group:all"
+  ],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
+      "automerge": true,
+      "automergeType": "pr",
+      "automergeStrategy": "fast-forward"
+    }
+  ],
+  "ignoreDeps": [
+    "io.github.aj8gh:spring-boot-template",
+    "io.github.aj8gh:checkstyle"
   ]
 }
