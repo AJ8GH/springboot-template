@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "ignoreDeps": [
+    "io.github.aj8gh:spring-boot-template",
+    "io.github.aj8gh:checkstyle"
+  ],
+  "extends": [
+    "config:base",
+    "group:all"
+  ]
+}
