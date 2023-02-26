@@ -1,4 +1,4 @@
-package io.github.aj8gh.template;
+package io.github.aj8gh.skeleton;
 
 import static org.assertj.core.api.Assertions.assertThatNoException;
 

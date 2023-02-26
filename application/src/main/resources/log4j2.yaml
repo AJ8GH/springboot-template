@@ -11,7 +11,7 @@ Configuration:
       - name: consoleAppender
         value: console
       - name: fileAppender
-        value: serverLog
+        value: applicationLog
       - name: consolePattern
         value: "%style{%d}{white}  %highlight{%-5p} %style{%pid}{magenta} %style{---}{white} %style{[%t]}{white} %style{%c{1.}}{cyan} : %m%n"
       - name: filePattern
@@ -19,9 +19,9 @@ Configuration:
       - name: appLogRoot
         value: ./logs/
       - name: fileName
-        value: server.log
+        value: application.log
       - name: fileNamePattern
-        value: server-%d{yyyy-MM-dd}.log
+        value: application-%d{yyyy-MM-dd}.log
       - name: rolloverMax
         value: 5
       - name: rolloverSize

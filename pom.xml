@@ -12,7 +12,7 @@
   </parent>
 
   <groupId>io.github.aj8gh</groupId>
-  <artifactId>spring-boot-template</artifactId>
+  <artifactId>spring-boot-skeleton</artifactId>
   <name>${project.artifactId}</name>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
@@ -32,7 +32,7 @@
     </project.reporting.outputEncoding>
 
     <!-- Jar -->
-    <default.package>template</default.package>
+    <default.package>skeleton</default.package>
     <start.class>Application</start.class>
     <main.class>${project.groupId}.${default.package}.${start.class}</main.class>
     <final.name>${project.artifactId}</final.name>

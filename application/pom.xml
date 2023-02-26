@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>io.github.aj8gh</groupId>
-    <artifactId>spring-boot-template</artifactId>
+    <artifactId>spring-boot-skeleton</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
 
