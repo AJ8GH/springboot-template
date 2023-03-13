@@ -1,4 +1,4 @@
-Feature: Skeleton Application
+Feature: Application feature
 
-  Scenario: Skeleton application
+  Scenario: Application scenario
     Given cucumber works
