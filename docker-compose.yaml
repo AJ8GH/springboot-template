@@ -1,7 +1,29 @@
-version: "3.8"
+version: '3.8'
 
 services:
   application:
     build:
       context: .
       dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    environment:
+      DB_HOST: db
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - '5432:5432'
+    env_file:
+      - docker-db.env
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ 'CMD-SHELL', 'pg_isready' ]
+      interval: 5s
+      timeout: 5s
+      retries: 5

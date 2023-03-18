@@ -14,6 +14,23 @@
 
   <dependencies>
     <dependency>
+      <groupId>io.github.aj8gh</groupId>
+      <artifactId>application</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
     </dependency>
@@ -23,11 +40,19 @@
     </dependency>
     <dependency>
       <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-spring</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
       <artifactId>cucumber-junit-platform-engine</artifactId>
     </dependency>
     <dependency>
       <groupId>org.junit.platform</groupId>
       <artifactId>junit-platform-suite</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.zonky.test</groupId>
+      <artifactId>embedded-database-spring-test</artifactId>
     </dependency>
   </dependencies>
 </project>

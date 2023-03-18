@@ -48,16 +48,19 @@
     <jacoco.phase>test</jacoco.phase>
     <jacoco.ratio.target>0.80</jacoco.ratio.target>
     <jacoco.class.target>0</jacoco.class.target>
+    <jacoco.haltOnFailure>true</jacoco.haltOnFailure>
 
     <!-- Versions -->
     <assertj.version>3.24.2</assertj.version>
     <awaitility.version>4.2.0</awaitility.version>
     <checkstyle.version>0.0.3</checkstyle.version>
     <cucumber.version>7.11.2</cucumber.version>
+    <embedded.database.version>2.2.0</embedded.database.version>
     <jacoco.version>0.8.8</jacoco.version>
     <jackson.version>2.14.2</jackson.version>
-    <junit.version>5.9.2</junit.version>
+    <junit.jupiter.version>5.9.2</junit.jupiter.version>
     <junit.platform.version>1.9.2</junit.platform.version>
+    <liquibase.version>4.20.0</liquibase.version>
     <log4j.version>2.20.0</log4j.version>
     <lombok.version>1.18.26</lombok.version>
     <maven.assembly.version>3.5.0</maven.assembly.version>
@@ -67,6 +70,7 @@
     <mockito.version>5.2.0</mockito.version>
     <slf4j.version>2.0.6</slf4j.version>
     <springboot.version>3.0.5</springboot.version>
+    <testcontainers.postgresql.version>1.17.6</testcontainers.postgresql.version>
     <wiremock.version>2.27.2</wiremock.version>
   </properties>
 
@@ -192,6 +196,7 @@
                 <goal>check</goal>
               </goals>
               <configuration>
+                <haltOnFailure>${jacoco.haltOnFailure}</haltOnFailure>
                 <rules>
                   <rule>
                     <element>BUNDLE</element>
@@ -310,6 +315,19 @@
         </exclusions>
       </dependency>
 
+      <!-- Database -->
+      <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>${postgresql.version}</version>
+        <scope>runtime</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.liquibase</groupId>
+        <artifactId>liquibase-core</artifactId>
+        <version>${liquibase.version}</version>
+      </dependency>
+
       <!-- Util -->
       <dependency>
         <groupId>org.projectlombok</groupId>
@@ -331,7 +349,7 @@
       <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter</artifactId>
-        <version>${junit.version}</version>
+        <version>${junit.jupiter.version}</version>
         <scope>test</scope>
       </dependency>
       <dependency>
@@ -363,6 +381,12 @@
         <artifactId>spring-boot-starter-test</artifactId>
         <version>${springboot.version}</version>
         <scope>test</scope>
+        <exclusions>
+          <exclusion>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
       <dependency>
         <groupId>io.cucumber</groupId>
@@ -374,6 +398,38 @@
         <groupId>io.cucumber</groupId>
         <artifactId>cucumber-junit-platform-engine</artifactId>
         <version>${cucumber.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-spring</artifactId>
+        <version>${cucumber.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.zonky.test</groupId>
+        <artifactId>embedded-database-spring-test</artifactId>
+        <version>${embedded.database.version}</version>
+        <scope>test</scope>
+        <exclusions>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.testcontainers</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>${testcontainers.postgresql.version}</version>
         <scope>test</scope>
       </dependency>
     </dependencies>

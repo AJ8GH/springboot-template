@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-example_entity
+      author: aj8gh
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            - tableExists:
+                tableName: example_entity
+      changes:
+        - createTable:
+            tableName: example_entity
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: example_entity_key
+              - column:
+                  name: name
+                  type: VARCHAR(30)
+                  constraints:
+                    nullable: false

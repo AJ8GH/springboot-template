@@ -5,7 +5,6 @@ run.sh
 lombok.config
 Dockerfile
 docker-compose.yaml
-coverage
 .github
 .gitignore
 .git

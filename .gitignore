@@ -1,3 +1,9 @@
+# Project #
+###########
+secrets.yaml
+data
+docker-db.env
+
 # Compiled source #
 ###################
 *.com
