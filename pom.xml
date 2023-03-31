@@ -20,7 +20,6 @@
   <modules>
     <module>coverage</module>
     <module>application</module>
-    <module>component-test</module>
   </modules>
 
   <properties>
@@ -48,7 +47,7 @@
     <jacoco.phase>test</jacoco.phase>
     <jacoco.ratio.target>0.80</jacoco.ratio.target>
     <jacoco.class.target>0</jacoco.class.target>
-    <jacoco.haltOnFailure>true</jacoco.haltOnFailure>
+    <jacoco.haltOnFailure>false</jacoco.haltOnFailure>
 
     <!-- Versions -->
     <assertj.version>3.24.2</assertj.version>

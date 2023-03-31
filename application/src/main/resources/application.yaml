@@ -1,4 +1,19 @@
+db:
+  host: localhost
+  name: application
+  user: ${db.name}
+  dialect: org.hibernate.dialect.PostgreSQLDialect
+
 spring:
-  output:
-    ansi:
-      enabled: always
+  config:
+    import: secrets.yaml
+  jpa:
+    database-platform: ${db.dialect}
+    properties:
+      hibernate:
+        dialect: ${db.dialect}
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${db.host}:5432/${db.name}
+    username: ${db.user}
+    password: ${db.password}
