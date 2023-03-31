@@ -4,6 +4,7 @@
     "config:base",
     "group:all"
   ],
+  "baseBranches": ["main", "db"],
   "packageRules": [
     {
       "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
