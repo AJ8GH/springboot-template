@@ -16,6 +16,6 @@
   "ignoreDeps": [
     "io.github.aj8gh:spring-boot-skeleton",
     "io.github.aj8gh:checkstyle",
-    "org.apache.maven.plugins:maven-surefire-plugin:3.0.0"
+    "org.apache.maven.plugins:maven-surefire-plugin"
   ]
 }
