@@ -196,6 +196,10 @@
               </goals>
               <configuration>
                 <haltOnFailure>${jacoco.haltOnFailure}</haltOnFailure>
+                <excludes>
+                  <exclude>io/github/aj8gh/skeleton/Application.java</exclude>
+                  <exclude>io/github/aj8gh/skeleton/config/**/*.java</exclude>
+                </excludes>
                 <rules>
                   <rule>
                     <element>BUNDLE</element>
