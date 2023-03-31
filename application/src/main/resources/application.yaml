@@ -6,7 +6,7 @@ db:
 
 spring:
   config:
-    import: secrets.yaml
+    import: optional:secrets.yaml
   jpa:
     database-platform: ${db.dialect}
     properties:
