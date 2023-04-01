@@ -38,8 +38,20 @@
 
   <dependencies>
     <dependency>
-      <groupId>io.github.aj8gh</groupId>
+      <groupId>${project.groupId}</groupId>
       <artifactId>application</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>persistence</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>service</artifactId>
     </dependency>
   </dependencies>
 </project>

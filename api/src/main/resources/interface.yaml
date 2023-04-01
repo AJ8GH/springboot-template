@@ -1,0 +1,67 @@
+openapi: 3.0.3
+info:
+  title: Spring Boot Skeleton
+  version: 1.0.0
+  description: REST API Interface
+tags:
+  - skeleton
+
+paths:
+  /skeleton/create:
+    post:
+      operationId: create
+      summary: Create an entity
+      tags:
+        - skeleton
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SkeletonCreateRequest'
+      responses:
+        200:
+          description: Create successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Skeleton'
+
+components:
+  schemas:
+    SkeletonCreateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: false
+        bones:
+          type: integer
+          format: int64
+          nullable: false
+          minimum: 0
+      required:
+        - name
+        - bones
+
+    Skeleton:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: false
+          readOnly: true
+        name:
+          type: string
+          nullable: false
+          readOnly: true
+        bones:
+          type: integer
+          format: int64
+          nullable: false
+          readOnly: true
+          minimum: 0
+      required:
+        - id
+        - name
+        - bones
