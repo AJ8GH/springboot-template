@@ -1,29 +1,36 @@
-package io.github.aj8gh.skeleton;
+package io.github.aj8gh.skeleton.persistence.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import java.time.Instant;
 import java.util.Objects;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
-@Getter
-@Setter
-@ToString
 @Entity
+@Table(name = "skeleton")
+@Getter
 @Builder
-@AllArgsConstructor
+@ToString
 @NoArgsConstructor
-public class ExampleEntity {
-
+@AllArgsConstructor
+public class SkeletonEntity {
   @Id
-  UUID id;
-  String name;
+  private UUID id;
+  private String name;
+  private int bones;
+  @CreationTimestamp
+  private Instant createdAt;
+  @UpdateTimestamp
+  private Instant updatedAt;
 
   @Override
   public boolean equals(Object o) {
@@ -33,8 +40,8 @@ public class ExampleEntity {
     if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) {
       return false;
     }
-    ExampleEntity exampleEntity = (ExampleEntity) o;
-    return id != null && Objects.equals(id, exampleEntity.id);
+    SkeletonEntity that = (SkeletonEntity) o;
+    return id != null && Objects.equals(id, that.id);
   }
 
   @Override

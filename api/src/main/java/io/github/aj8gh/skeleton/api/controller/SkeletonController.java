@@ -1,6 +1,5 @@
-package io.github.aj8gh.api.controller;
+package io.github.aj8gh.skeleton.api.controller;
 
-import io.github.aj8gh.skeleton.api.controller.SkeletonApi;
 import io.github.aj8gh.skeleton.api.model.Skeleton;
 import io.github.aj8gh.skeleton.api.model.SkeletonCreateRequest;
 import org.springframework.http.ResponseEntity;
