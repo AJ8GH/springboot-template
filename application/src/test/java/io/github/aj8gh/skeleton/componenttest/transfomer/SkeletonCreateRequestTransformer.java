@@ -12,6 +12,6 @@ public class SkeletonCreateRequestTransformer {
   public SkeletonCreateRequest transform(Map<String, String> data) {
     return new SkeletonCreateRequest()
         .name(data.get(NAME))
-        .name(data.get(BONES));
+        .bones(Long.parseLong(data.get(BONES)));
   }
 }

@@ -32,8 +32,9 @@ public class SkeletonSteps implements En {
     });
 
     Then("the following entities exist in the skeleton table", (DataTable data) -> {
+      var expected = sortedById(data.asList(SkeletonEntity.class));
+
       await().untilAsserted(() -> {
-        var expected = sortedById(data.asList(SkeletonEntity.class));
         var actual = sortedById(jpaSkeletonRepository.findAll());
         var softly = new SoftAssertions();
 

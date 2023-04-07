@@ -1,5 +1,7 @@
 package io.github.aj8gh.skeleton.componenttest.steps;
 
+import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.DEFINED_PORT;
+
 import io.cucumber.spring.CucumberContextConfiguration;
 import io.github.aj8gh.skeleton.Application;
 import io.github.aj8gh.skeleton.componenttest.config.ClientConfig;
@@ -12,7 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @Slf4j
 @Suite
-@SpringBootTest(classes = {Application.class, ClientConfig.class})
+@SpringBootTest(webEnvironment = DEFINED_PORT, classes = {Application.class, ClientConfig.class})
 @IncludeEngines("cucumber")
 @SelectClasspathResource("features")
 @CucumberContextConfiguration

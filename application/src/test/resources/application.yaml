@@ -3,5 +3,6 @@ db:
 
 api:
   root-uri: http://localhost:8080/skeleton
+  port: 8080
   path:
     create: /create
