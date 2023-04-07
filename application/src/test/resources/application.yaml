@@ -1,0 +1,7 @@
+db:
+  password: test-password
+
+api:
+  root-uri: http://localhost:8080/skeleton
+  path:
+    create: /create

@@ -1,6 +1,8 @@
 package io.github.aj8gh.skeleton.componenttest.steps;
 
 import io.cucumber.spring.CucumberContextConfiguration;
+import io.github.aj8gh.skeleton.Application;
+import io.github.aj8gh.skeleton.componenttest.config.ClientConfig;
 import io.zonky.test.db.AutoConfigureEmbeddedDatabase;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.platform.suite.api.IncludeEngines;
@@ -10,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @Slf4j
 @Suite
-@SpringBootTest
+@SpringBootTest(classes = {Application.class, ClientConfig.class})
 @IncludeEngines("cucumber")
 @SelectClasspathResource("features")
 @CucumberContextConfiguration
