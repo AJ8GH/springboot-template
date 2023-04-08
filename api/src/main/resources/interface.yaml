@@ -19,12 +19,12 @@ paths:
             schema:
               $ref: '#/components/schemas/SkeletonCreateRequest'
       responses:
-        200:
+        201:
           description: Create successful
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Skeleton'
+                $ref: '#/components/schemas/SkeletonDto'
 
 components:
   schemas:
@@ -43,7 +43,7 @@ components:
         - name
         - bones
 
-    Skeleton:
+    SkeletonDto:
       type: object
       properties:
         id:
@@ -61,6 +61,16 @@ components:
           nullable: false
           readOnly: true
           minimum: 0
+        createdAt:
+          type: string
+          format: date-time
+          nullable: false
+          readOnly: true
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: false
+          readOnly: true
       required:
         - id
         - name

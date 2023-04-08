@@ -1,12 +1,15 @@
 package io.github.aj8gh.skeleton.componenttest.steps;
 
 import static java.util.Comparator.comparing;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.testcontainers.shaded.org.awaitility.Awaitility.await;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java8.En;
 import io.github.aj8gh.skeleton.api.model.SkeletonCreateRequest;
+import io.github.aj8gh.skeleton.api.model.SkeletonDto;
 import io.github.aj8gh.skeleton.componenttest.client.SkeletonClient;
+import io.github.aj8gh.skeleton.componenttest.context.ScenarioContext;
 import io.github.aj8gh.skeleton.persistence.entity.SkeletonEntity;
 import io.github.aj8gh.skeleton.persistence.repository.JpaSkeletonRepository;
 import java.util.List;
@@ -25,10 +28,16 @@ public class SkeletonSteps implements En {
   @Autowired
   private SkeletonClient skeletonClient;
 
+  @Autowired
+  private ScenarioContext scenarioContext;
+
   public SkeletonSteps() {
     When("the following create skeleton request is made", (DataTable data) -> {
       SkeletonCreateRequest request = data.convert(SkeletonCreateRequest.class, false);
-      skeletonClient.create(request);
+      var response = skeletonClient.create(request);
+
+      scenarioContext.setResponseStatusCode(response.getStatusCode());
+      scenarioContext.setCreateSkeletonResponseBody(response.getBody());
     });
 
     Then("the following entities exist in the skeleton table", (DataTable data) -> {
@@ -48,6 +57,22 @@ public class SkeletonSteps implements En {
 
         softly.assertAll();
       });
+    });
+
+    Then("the skeleton create response has the following body", (DataTable data) -> {
+      SkeletonDto expectedResponseBody = data.convert(SkeletonDto.class, false);
+      var actualResponseBody = scenarioContext.getCreateSkeletonResponseBody();
+
+      assertThat(actualResponseBody)
+          .usingRecursiveAssertion()
+          .ignoringFields(ID, CREATED_AT, UPDATED_AT)
+          .isEqualTo(expectedResponseBody);
+
+      assertThat(actualResponseBody.getId()).isNotNull();
+      assertThat(actualResponseBody.getCreatedAt()).isNotNull();
+      assertThat(actualResponseBody.getUpdatedAt())
+          .isNotNull()
+          .isEqualTo(actualResponseBody.getCreatedAt());
     });
   }
 

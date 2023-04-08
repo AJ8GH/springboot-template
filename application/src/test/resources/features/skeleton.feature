@@ -7,3 +7,7 @@ Feature: Skeleton feature
     Then the following entities exist in the skeleton table
       | name  | bones |
       | first | 206   |
+    And the response status code is 201
+    And the skeleton create response has the following body
+      | name  | bones |
+      | first | 206   |

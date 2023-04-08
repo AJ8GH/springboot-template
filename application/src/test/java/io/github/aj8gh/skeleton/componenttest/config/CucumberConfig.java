@@ -4,6 +4,7 @@ import static org.springframework.http.HttpHeaders.CONTENT_TYPE;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 import io.github.aj8gh.skeleton.componenttest.client.SkeletonClient;
+import io.github.aj8gh.skeleton.componenttest.context.ScenarioContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.TestConfiguration;
@@ -14,7 +15,7 @@ import org.springframework.web.util.DefaultUriBuilderFactory;
 
 @TestConfiguration
 @RequiredArgsConstructor
-public class ClientConfig {
+public class CucumberConfig {
 
   @Value("${api.root-uri}")
   private String rootUri;
@@ -36,6 +37,11 @@ public class ClientConfig {
   @Bean
   public SkeletonClient skeletonClient() {
     return new SkeletonClient(restTemplate(), createPath);
+  }
+
+  @Bean
+  public ScenarioContext scenarioContext() {
+    return new ScenarioContext();
   }
 
   private String getRootUriWithPort() {
