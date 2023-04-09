@@ -36,7 +36,7 @@ components:
           nullable: false
         bones:
           type: integer
-          format: int64
+          format: int32
           nullable: false
           minimum: 0
       required:
@@ -57,7 +57,7 @@ components:
           readOnly: true
         bones:
           type: integer
-          format: int64
+          format: int32
           nullable: false
           readOnly: true
           minimum: 0

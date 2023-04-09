@@ -1,6 +1,6 @@
 package io.github.aj8gh.skeleton.api.controller;
 
-import io.github.aj8gh.skeleton.api.mapper.SkeletonMapper;
+import io.github.aj8gh.skeleton.api.mapper.SkeletonRestMapper;
 import io.github.aj8gh.skeleton.api.model.SkeletonCreateRequest;
 import io.github.aj8gh.skeleton.api.model.SkeletonDto;
 import io.github.aj8gh.skeleton.service.SkeletonService;
@@ -18,7 +18,7 @@ public class SkeletonController implements SkeletonApi {
   private static final int RESOURCE_CREATED = 201;
 
   private final SkeletonService service;
-  private final SkeletonMapper mapper;
+  private final SkeletonRestMapper mapper;
 
   @Override
   public ResponseEntity<SkeletonDto> create(SkeletonCreateRequest request) {

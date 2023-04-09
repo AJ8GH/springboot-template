@@ -7,7 +7,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import io.github.aj8gh.skeleton.api.mapper.SkeletonMapper;
+import io.github.aj8gh.skeleton.api.mapper.SkeletonRestMapper;
 import io.github.aj8gh.skeleton.api.model.SkeletonCreateRequest;
 import io.github.aj8gh.skeleton.api.model.SkeletonDto;
 import io.github.aj8gh.skeleton.service.SkeletonService;
@@ -29,7 +29,7 @@ class SkeletonControllerTest {
 
   private static final String CREATE_PATH = "/skeleton/create";
   private static final String NAME = "name";
-  private static final long BONES = 206L;
+  private static final int BONES = 206;
   private static final Instant NOW = Instant.now();
   private static final UUID ID = UUID.randomUUID();
 
@@ -39,7 +39,7 @@ class SkeletonControllerTest {
   @Mock
   private SkeletonService service;
   @Mock
-  private SkeletonMapper mapper;
+  private SkeletonRestMapper mapper;
   @InjectMocks
   private SkeletonController controller;
 

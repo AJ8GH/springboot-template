@@ -13,7 +13,7 @@ public class SkeletonEntityTransformer {
   public SkeletonEntity transform(Map<String, String> data) {
     return SkeletonEntity.builder()
         .name(data.get(NAME))
-        .name(data.get(BONES))
+        .bones(Integer.parseInt(data.get(BONES)))
         .build();
   }
 }

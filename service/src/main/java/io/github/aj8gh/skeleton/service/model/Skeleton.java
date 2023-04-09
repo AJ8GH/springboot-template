@@ -11,7 +11,7 @@ public class Skeleton {
 
   UUID id;
   String name;
-  long bones;
+  int bones;
   Instant createdAt;
   Instant updatedAt;
 }

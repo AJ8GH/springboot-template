@@ -1,16 +1,17 @@
 package io.github.aj8gh.skeleton.componenttest.transfomer;
 
 import io.cucumber.java.DataTableType;
-import io.github.aj8gh.skeleton.api.model.SkeletonCreateRequest;
+import io.github.aj8gh.skeleton.api.model.SkeletonDto;
 import java.util.Map;
 
-public class SkeletonCreateRequestTransformer {
+public class SkeletonDtoTransformer {
+
   private static final String NAME = "name";
   private static final String BONES = "bones";
 
   @DataTableType
-  public SkeletonCreateRequest transform(Map<String, String> data) {
-    return new SkeletonCreateRequest()
+  public SkeletonDto transform(Map<String, String> data) {
+    return new SkeletonDto()
         .name(data.get(NAME))
         .bones(Integer.parseInt(data.get(BONES)));
   }

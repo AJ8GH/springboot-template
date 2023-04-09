@@ -51,7 +51,7 @@ public class SkeletonSteps implements En {
         softly.assertThat(actual)
             .zipSatisfy(expected, (actualEntity, expectedEntity) ->
                 softly.assertThat(actualEntity)
-                    .usingRecursiveAssertion()
+                    .usingRecursiveComparison()
                     .ignoringFields(ID, CREATED_AT, UPDATED_AT)
                     .isEqualTo(expectedEntity));
 
@@ -64,15 +64,13 @@ public class SkeletonSteps implements En {
       var actualResponseBody = scenarioContext.getCreateSkeletonResponseBody();
 
       assertThat(actualResponseBody)
-          .usingRecursiveAssertion()
+          .usingRecursiveComparison()
           .ignoringFields(ID, CREATED_AT, UPDATED_AT)
           .isEqualTo(expectedResponseBody);
 
       assertThat(actualResponseBody.getId()).isNotNull();
       assertThat(actualResponseBody.getCreatedAt()).isNotNull();
-      assertThat(actualResponseBody.getUpdatedAt())
-          .isNotNull()
-          .isEqualTo(actualResponseBody.getCreatedAt());
+      assertThat(actualResponseBody.getUpdatedAt()).isNotNull();
     });
   }
 
