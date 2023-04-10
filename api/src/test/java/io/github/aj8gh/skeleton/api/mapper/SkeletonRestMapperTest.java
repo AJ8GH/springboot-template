@@ -26,7 +26,7 @@ class SkeletonRestMapperTest {
   }
 
   @Test
-  void fromCreateRequest() {
+  void fromCreateRequest_HappyPath() {
     // Given
     var request = new SkeletonCreateRequest()
         .name(NAME)
@@ -45,7 +45,7 @@ class SkeletonRestMapperTest {
   }
 
   @Test
-  void toDto() {
+  void toDto_HappyPath() {
     // Given
     var model = Skeleton.builder()
         .id(ID)

@@ -196,6 +196,8 @@
             <excludes>
               <exclude>io/github/aj8gh/**/Application.*</exclude>
               <exclude>io/github/aj8gh/**/config/**/*</exclude>
+              <exclude>io/github/aj8gh/**/*MapperImpl.*</exclude>
+              <exclude>io/github/aj8gh/skeleton/api/controller/ApiUtil.*</exclude>
             </excludes>
           </configuration>
           <executions>

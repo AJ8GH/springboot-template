@@ -25,7 +25,7 @@ class SkeletonMapperTest {
   }
 
   @Test
-  void toEntity() {
+  void toEntity_HappyPath() {
     // Given
     var model = Skeleton.builder()
         .id(ID)
@@ -51,7 +51,7 @@ class SkeletonMapperTest {
   }
 
   @Test
-  void fromEntity() {
+  void fromEntity_HappyPath() {
     // Given
     var entity = SkeletonEntity.builder()
         .id(ID)
