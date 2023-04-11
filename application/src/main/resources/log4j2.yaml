@@ -60,4 +60,5 @@ Configuration:
     Root:
       level: ${level}
       AppenderRef:
-        ref: ${consoleAppender}
+        - ref: ${consoleAppender}
+        - ref: ${fileAppender}
