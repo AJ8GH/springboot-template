@@ -17,3 +17,9 @@ spring:
     url: jdbc:postgresql://${db.host}:5432/${db.name}
     username: ${db.user}
     password: ${db.password}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
