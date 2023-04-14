@@ -26,11 +26,18 @@ public class CucumberConfig {
   @Value("${api.path.create}")
   private String createPath;
 
+  @Value("${spring.security.user.name}")
+  private String username;
+
+  @Value("${spring.security.user.password}")
+  private String password;
+
   @Bean
   public RestTemplate restTemplate() {
     return new RestTemplateBuilder()
         .rootUri(getRootUriWithPort())
         .defaultHeader(CONTENT_TYPE, APPLICATION_JSON.toString())
+        .basicAuthentication(username, password)
         .build();
   }
 

@@ -6,3 +6,9 @@ api:
   port: 8080
   path:
     create: /create
+
+spring:
+  security:
+    user:
+      name: test-user
+      password: test-password
