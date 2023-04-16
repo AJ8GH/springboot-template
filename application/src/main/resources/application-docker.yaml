@@ -1,2 +1,5 @@
 db:
-  host: ${DB_HOST}
+  host: ${DB_HOST_NAME}
+
+kafka:
+  host-name: ${KAFKA_HOST_NAME}

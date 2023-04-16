@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public class HookSteps implements En {
 
   @Autowired
-  List<JpaRepository<?, ?>> repositories;
+  private List<JpaRepository<?, ?>> repositories;
 
   public HookSteps() {
     Before(() -> repositories.forEach(JpaRepository::deleteAll));

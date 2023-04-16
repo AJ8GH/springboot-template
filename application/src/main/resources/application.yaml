@@ -8,6 +8,7 @@ spring:
   config:
     import: optional:secrets.yaml
   jpa:
+    open-in-view: false
     database-platform: ${db.dialect}
     properties:
       hibernate:
@@ -25,4 +26,8 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: '*'
+
+kafka:
+  host-name: localhost
+  bootstrap-servers: ${kafka.host-name}:9092

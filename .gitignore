@@ -2,7 +2,9 @@
 ###########
 secrets.yaml
 data
-docker-db.env
+.env
+**/*.env
+run-temp.sh
 
 # Compiled source #
 ###################

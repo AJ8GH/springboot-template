@@ -3,4 +3,4 @@ WORKDIR /app
 COPY . /app
 RUN mvn -B clean package -DskipTests -Pdocker
 EXPOSE 8080
-CMD ["java", "-jar", "/app/application/target/application-sb.jar"]
+CMD ["java", "-jar", "-Dspring.profiles.active=docker", "/app/application/target/application-sb.jar"]
