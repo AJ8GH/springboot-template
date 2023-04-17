@@ -83,6 +83,7 @@
     <mockito.version>5.3.0</mockito.version>
     <open.api.maven.version>6.5.0</open.api.maven.version>
     <slf4j.version>2.0.6</slf4j.version>
+    <spring.kafka.test.version>3.0.4</spring.kafka.test.version>
     <springboot.version>3.0.5</springboot.version>
     <springdoc.openapi.version>2.1.0</springdoc.openapi.version>
     <testcontainers.postgresql.version>1.18.0</testcontainers.postgresql.version>
@@ -538,6 +539,12 @@
             <artifactId>spring-boot-starter-logging</artifactId>
           </exclusion>
         </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.kafka</groupId>
+        <artifactId>spring-kafka-test</artifactId>
+        <scope>test</scope>
+        <version>${spring.kafka.test.version}</version>
       </dependency>
       <dependency>
         <groupId>io.cucumber</groupId>

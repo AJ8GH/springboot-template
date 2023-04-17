@@ -10,12 +10,16 @@ import org.junit.platform.suite.api.IncludeEngines;
 import org.junit.platform.suite.api.SelectClasspathResource;
 import org.junit.platform.suite.api.Suite;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.kafka.test.context.EmbeddedKafka;
 
 @Suite
 @IncludeEngines("cucumber")
 @SelectClasspathResource("features")
 @CucumberContextConfiguration
 @AutoConfigureEmbeddedDatabase
+@EmbeddedKafka(
+    partitions = 1,
+    brokerProperties = { "listeners=PLAINTEXT://localhost:9092", "port=9092" })
 @SpringBootTest(
     webEnvironment = DEFINED_PORT,
     classes = {Application.class, CucumberConfig.class})
