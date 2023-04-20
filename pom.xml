@@ -8,7 +8,7 @@
     <artifactId>spring-boot-starter-parent</artifactId>
     <groupId>org.springframework.boot</groupId>
     <relativePath/>
-    <version>3.0.5</version>
+    <version>3.0.6</version>
   </parent>
 
   <groupId>io.github.aj8gh</groupId>
@@ -63,12 +63,12 @@
     <log4j.version>2.20.0</log4j.version>
     <lombok.version>1.18.26</lombok.version>
     <maven.assembly.version>3.5.0</maven.assembly.version>
-    <maven.checkstyle.version>3.2.1</maven.checkstyle.version>
+    <maven.checkstyle.version>3.2.2</maven.checkstyle.version>
     <maven.enforcer.version>3.3.0</maven.enforcer.version>
     <maven.surefire.version>3.0.0-M9</maven.surefire.version>
     <mockito.version>5.3.0</mockito.version>
     <slf4j.version>2.0.6</slf4j.version>
-    <springboot.version>3.0.5</springboot.version>
+    <springboot.version>3.0.6</springboot.version>
     <testcontainers.postgresql.version>1.18.0</testcontainers.postgresql.version>
     <wiremock.version>2.27.2</wiremock.version>
   </properties>
