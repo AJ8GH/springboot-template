@@ -75,3 +75,5 @@ components:
         - id
         - name
         - bones
+        - createdAt
+        - updatedAt

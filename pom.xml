@@ -57,9 +57,12 @@
 
     <!-- Versions -->
     <assertj.version>3.24.2</assertj.version>
+    <avro.version>1.11.1</avro.version>
     <awaitility.version>4.2.0</awaitility.version>
     <checkstyle.version>0.0.3</checkstyle.version>
+    <confluent.version>7.3.3</confluent.version>
     <cucumber.version>7.11.2</cucumber.version>
+    <cucumber.messages.version>22.0.0</cucumber.messages.version>
     <embedded.database.version>2.2.0</embedded.database.version>
     <hibernate.validator.version>8.0.0.Final</hibernate.validator.version>
     <jacoco.version>0.8.9</jacoco.version>
@@ -91,6 +94,13 @@
     <testcontainers.postgresql.version>1.18.0</testcontainers.postgresql.version>
     <wiremock.version>2.27.2</wiremock.version>
   </properties>
+
+  <repositories>
+    <repository>
+      <id>confluent</id>
+      <url>https://packages.confluent.io/maven/</url>
+    </repository>
+  </repositories>
 
   <pluginRepositories>
     <pluginRepository>
@@ -329,7 +339,10 @@
                 <apiPackage>${openapi.controller.package}</apiPackage>
                 <invokerPackage>${openapi.controller.package}.inv</invokerPackage>
                 <configOptions>
-                  <additionalModelTypeAnnotations>@lombok.Generated</additionalModelTypeAnnotations>
+                  <additionalModelTypeAnnotations>
+                    @lombok.Generated
+                    @lombok.Builder(toBuilder = true)
+                  </additionalModelTypeAnnotations>
                   <additionalEnumTypeAnnotations>@lombok.Generated</additionalEnumTypeAnnotations>
                   <interfaceOnly>true</interfaceOnly>
                   <useTags>true</useTags>
@@ -343,6 +356,27 @@
                   <importMapping>java.time.OffsetDateTime=java.time.Instant</importMapping>
                 </importMappings>
               </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.avro</groupId>
+          <artifactId>avro-maven-plugin</artifactId>
+          <version>${avro.version}</version>
+          <configuration>
+            <sourceDirectory>${project.basedir}/src/main/avro</sourceDirectory>
+            <outputDirectory>${project.basedir}/target/generated-sources</outputDirectory>
+          </configuration>
+          <executions>
+            <execution>
+              <id>schemas</id>
+              <phase>generate-sources</phase>
+              <goals>
+                <goal>schema</goal>
+                <goal>protocol</goal>
+                <goal>idl-protocol</goal>
+              </goals>
             </execution>
           </executions>
         </plugin>
@@ -496,6 +530,29 @@
         <version>${javax.servlet.version}</version>
         <scope>provided</scope>
       </dependency>
+      <dependency>
+        <groupId>org.apache.avro</groupId>
+        <artifactId>avro</artifactId>
+        <version>${avro.version}</version>
+      </dependency>
+
+      <!-- kafka -->
+      <dependency>
+        <groupId>io.confluent</groupId>
+        <artifactId>kafka-avro-serializer</artifactId>
+        <version>${confluent.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.checkerframework</groupId>
+            <artifactId>checker-qual</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>io.confluent</groupId>
+        <artifactId>kafka-schema-registry-client</artifactId>
+        <version>${confluent.version}</version>
+      </dependency>
 
       <!-- Test -->
       <dependency>
@@ -548,12 +605,6 @@
       </dependency>
       <dependency>
         <groupId>io.cucumber</groupId>
-        <artifactId>cucumber-java8</artifactId>
-        <version>${cucumber.version}</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>io.cucumber</groupId>
         <artifactId>cucumber-java</artifactId>
         <version>${cucumber.version}</version>
         <scope>test</scope>
@@ -575,6 +626,11 @@
         <artifactId>cucumber-spring</artifactId>
         <version>${cucumber.version}</version>
         <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>messages</artifactId>
+        <version>${cucumber.messages.version}</version>
       </dependency>
       <dependency>
         <groupId>io.zonky.test</groupId>

@@ -1,0 +1,33 @@
+{
+  "type": "record",
+  "name": "SkeletonCreatedEvent",
+  "namespace": "io.github.aj8gh.skeleton.messaging.event",
+  "doc": "Represents a skeleton created event",
+  "fields": [
+    {
+      "name": "id",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "name": "bones",
+      "type": "int"
+    },
+    {
+      "name": "name",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      }
+    },
+    {
+      "name": "createdAt",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      }
+    }
+  ]
+}

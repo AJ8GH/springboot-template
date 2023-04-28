@@ -4,6 +4,23 @@ db:
   user: ${db.name}
   dialect: org.hibernate.dialect.PostgreSQLDialect
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+schema-registry:
+  host-name: localhost
+
+kafka:
+  host-name: localhost
+  topics:
+    skeleton-created-v1:
+      name: skeleton-created-v1
+      partitions: 1
+      replicas: 1
+
 spring:
   config:
     import: optional:secrets.yaml
@@ -21,13 +38,24 @@ spring:
   security:
     user:
       name: application
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-
-kafka:
-  host-name: localhost
-  bootstrap-servers: ${kafka.host-name}:9092
+  kafka:
+    bootstrap-servers: ${kafka.host-name}:9092
+    properties:
+      auto:
+        register:
+          schemas: true
+      schema:
+        registry:
+          url: http://${schema-registry.host-name}:8081
+    consumer:
+      group-id: application
+      keyDeserializer: org.apache.kafka.common.serialization.StringDeserializer
+      valueDeserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      autoOffsetReset: earliest
+      properties:
+        specific:
+          avro:
+            reader: true
+    producer:
+      keySerializer: org.apache.kafka.common.serialization.StringSerializer
+      valueSerializer: io.confluent.kafka.serializers.KafkaAvroSerializer

@@ -11,17 +11,19 @@ import org.junit.platform.suite.api.SelectClasspathResource;
 import org.junit.platform.suite.api.Suite;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.kafka.test.context.EmbeddedKafka;
+import org.springframework.test.context.ActiveProfiles;
 
 @Suite
 @IncludeEngines("cucumber")
 @SelectClasspathResource("features")
 @CucumberContextConfiguration
 @AutoConfigureEmbeddedDatabase
+@ActiveProfiles("test")
 @EmbeddedKafka(
-    partitions = 1,
-    brokerProperties = { "listeners=PLAINTEXT://localhost:9092", "port=9092" })
+    brokerProperties = { "listeners=PLAINTEXT://localhost:9092", "port=9092" },
+    partitions = 1)
 @SpringBootTest(
-    webEnvironment = DEFINED_PORT,
-    classes = {Application.class, CucumberConfig.class})
+    classes = {Application.class, CucumberConfig.class},
+    webEnvironment = DEFINED_PORT)
 public class TestRunnerCucumber {
 }

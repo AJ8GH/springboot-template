@@ -53,20 +53,10 @@ class SkeletonControllerTest {
   @Test
   void create_HappyPath() throws Exception {
     // Given
-    var request = new SkeletonCreateRequest()
-        .name(NAME)
-        .bones(BONES);
-
+    var request = buildCreateRequest();
     var modelToCreate = toModel(request);
-
-    var createdModel = modelToCreate.toBuilder()
-        .id(ID)
-        .createdAt(NOW)
-        .updatedAt(NOW)
-        .build();
-
+    var createdModel = toCreatedModel(modelToCreate);
     var dto = toDto(createdModel);
-
     when(mapper.fromCreateRequest(request)).thenReturn(modelToCreate);
     when(service.create(modelToCreate)).thenReturn(createdModel);
     when(mapper.toDto(createdModel)).thenReturn(dto);
@@ -84,19 +74,35 @@ class SkeletonControllerTest {
     assertThat(objectMapper.readValue(actual, SkeletonDto.class)).isEqualTo(dto);
   }
 
-  private SkeletonDto toDto(Skeleton model) {
-    return new SkeletonDto()
-        .name(model.getName())
-        .bones(model.getBones())
-        .id(model.getId())
-        .createdAt(model.getCreatedAt())
-        .updatedAt(model.getUpdatedAt());
+  private SkeletonCreateRequest buildCreateRequest() {
+    return SkeletonCreateRequest.builder()
+        .name(NAME)
+        .bones(BONES)
+        .build();
   }
 
   private Skeleton toModel(SkeletonCreateRequest request) {
     return Skeleton.builder()
         .name(request.getName())
         .bones(request.getBones())
+        .build();
+  }
+
+  private Skeleton toCreatedModel(Skeleton model) {
+    return model.toBuilder()
+        .id(ID)
+        .createdAt(NOW)
+        .updatedAt(NOW)
+        .build();
+  }
+
+  private SkeletonDto toDto(Skeleton model) {
+    return SkeletonDto.builder()
+        .name(model.getName())
+        .bones(model.getBones())
+        .id(model.getId())
+        .createdAt(model.getCreatedAt())
+        .updatedAt(model.getUpdatedAt())
         .build();
   }
 }

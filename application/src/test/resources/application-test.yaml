@@ -12,7 +12,8 @@ spring:
     user:
       name: test-user
       password: test-password
-
-kafka:
-  host-name: localhost
-  bootstrap-servers: ${kafka.host-name}:9092
+  kafka:
+    properties:
+      schema:
+        registry:
+          url: mock://localhost:8081

@@ -5,10 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.time.Instant;
-import java.util.Objects;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -23,11 +23,13 @@ import org.hibernate.annotations.UuidGenerator;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class SkeletonEntity {
 
   @Id
   @UuidGenerator
   @GeneratedValue
+  @EqualsAndHashCode.Include
   private UUID id;
 
   private String name;
@@ -40,25 +42,4 @@ public class SkeletonEntity {
   @UpdateTimestamp
   @GeneratedValue
   private Instant updatedAt;
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    SkeletonEntity that = (SkeletonEntity) o;
-    return bones == that.bones
-        && Objects.equals(id, that.id)
-        && Objects.equals(createdAt, that.createdAt)
-        && Objects.equals(updatedAt, that.updatedAt)
-        && Objects.equals(name, that.name);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, createdAt, updatedAt, name, bones);
-  }
 }

@@ -1,16 +1,17 @@
 package io.github.aj8gh.skeleton.componenttest.steps;
 
-import io.cucumber.java8.En;
+import io.cucumber.java.Before;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public class HookSteps implements En {
+@RequiredArgsConstructor
+public class HookSteps {
 
-  @Autowired
-  private List<JpaRepository<?, ?>> repositories;
+  private final List<JpaRepository<?, ?>> repositories;
 
-  public HookSteps() {
-    Before(() -> repositories.forEach(JpaRepository::deleteAll));
+  @Before
+  public void before() {
+    repositories.forEach(JpaRepository::deleteAll);
   }
 }

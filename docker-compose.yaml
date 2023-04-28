@@ -59,3 +59,11 @@ services:
     depends_on:
       zookeeper:
         condition: service_started
+
+  schema-registry:
+    image: confluentinc/cp-schema-registry:latest
+    ports:
+      - '8081:8081'
+    environment:
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: http://${KAFKA_HOST_NAME}:9092
+      SCHEMA_REGISTRY_HOST_NAME: ${SCHEMA_REGISTRY_HOST_NAME}

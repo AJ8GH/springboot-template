@@ -98,8 +98,8 @@
       <artifactId>assertj-core</artifactId>
     </dependency>
     <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-java8</artifactId>
+      <groupId>org.awaitility</groupId>
+      <artifactId>awaitility</artifactId>
     </dependency>
     <dependency>
       <groupId>io.cucumber</groupId>
@@ -112,6 +112,10 @@
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-junit-platform-engine</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>messages</artifactId>
     </dependency>
     <dependency>
       <groupId>org.junit.platform</groupId>

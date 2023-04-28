@@ -5,16 +5,18 @@ import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 import io.github.aj8gh.skeleton.componenttest.client.SkeletonClient;
 import io.github.aj8gh.skeleton.componenttest.context.ScenarioContext;
-import lombok.RequiredArgsConstructor;
+import io.github.aj8gh.skeleton.componenttest.kafka.Consumer;
+import io.github.aj8gh.skeleton.componenttest.kafka.TestProducer;
+import io.github.aj8gh.skeleton.messaging.event.SkeletonCreatedEvent;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 
 @TestConfiguration
-@RequiredArgsConstructor
 public class CucumberConfig {
 
   @Value("${api.root-uri}")
@@ -31,6 +33,9 @@ public class CucumberConfig {
 
   @Value("${spring.security.user.password}")
   private String password;
+
+  @Value("${kafka.topics.skeleton-created-v1.name}")
+  private String topicName;
 
   @Bean
   public RestTemplate restTemplate() {
@@ -49,6 +54,16 @@ public class CucumberConfig {
   @Bean
   public ScenarioContext scenarioContext() {
     return new ScenarioContext();
+  }
+
+  @Bean
+  public Consumer consumer() {
+    return new Consumer();
+  }
+
+  @Bean
+  public TestProducer testProducer(KafkaTemplate<String, SkeletonCreatedEvent> kafkaTemplate) {
+    return new TestProducer(topicName, kafkaTemplate);
   }
 
   private String getRootUriWithPort() {
