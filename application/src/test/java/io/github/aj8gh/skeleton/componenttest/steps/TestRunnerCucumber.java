@@ -4,7 +4,6 @@ import static io.github.aj8gh.skeleton.componenttest.util.Constants.CUCUMBER;
 import static io.github.aj8gh.skeleton.componenttest.util.Constants.FEATURES;
 import static io.github.aj8gh.skeleton.componenttest.util.Constants.LISTENERS;
 import static io.github.aj8gh.skeleton.componenttest.util.Constants.PARTITIONS;
-import static io.github.aj8gh.skeleton.componenttest.util.Constants.PORT;
 import static io.github.aj8gh.skeleton.componenttest.util.Constants.TEST;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.DEFINED_PORT;
 
@@ -25,7 +24,7 @@ import org.springframework.test.context.ActiveProfiles;
 @CucumberContextConfiguration
 @AutoConfigureEmbeddedDatabase
 @ActiveProfiles(TEST)
-@EmbeddedKafka(brokerProperties = {LISTENERS}, ports = {PORT}, partitions = PARTITIONS)
+@EmbeddedKafka(brokerProperties = {LISTENERS}, partitions = PARTITIONS)
 @SpringBootTest(classes = {Application.class, CucumberConfig.class}, webEnvironment = DEFINED_PORT)
 public class TestRunnerCucumber {
 }

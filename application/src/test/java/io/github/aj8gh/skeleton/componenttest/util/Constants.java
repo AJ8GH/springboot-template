@@ -21,8 +21,7 @@ public final class Constants {
   /**
    * Embedded Kafka
    */
-  public static final String LISTENERS = "listeners=PLAINTEXT://localhost:9094";
-  public static final int PORT = 9094;
+  public static final String LISTENERS = "listeners=PLAINTEXT://${spring.kafka.bootstrap-servers}";
   public static final int PARTITIONS = 1;
 
   /**
