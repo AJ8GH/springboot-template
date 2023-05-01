@@ -34,11 +34,11 @@ public class CucumberConfig {
   @Value("${spring.security.user.password}")
   private String password;
 
-  @Value("${kafka.topics.skeleton-created-v1.name}")
+  @Value("${spring.kafka.topics.skeleton-created-v1.name}")
   private String topicName;
 
   @Bean
-  public RestTemplate restTemplate() {
+  RestTemplate restTemplate() {
     return new RestTemplateBuilder()
         .rootUri(getRootUriWithPort())
         .defaultHeader(CONTENT_TYPE, APPLICATION_JSON.toString())
@@ -47,22 +47,22 @@ public class CucumberConfig {
   }
 
   @Bean
-  public SkeletonClient skeletonClient() {
+  SkeletonClient skeletonClient() {
     return new SkeletonClient(restTemplate(), createPath);
   }
 
   @Bean
-  public ScenarioContext scenarioContext() {
+  ScenarioContext scenarioContext() {
     return new ScenarioContext();
   }
 
   @Bean
-  public Consumer consumer() {
+  Consumer consumer() {
     return new Consumer();
   }
 
   @Bean
-  public TestProducer testProducer(KafkaTemplate<String, SkeletonCreatedEvent> kafkaTemplate) {
+  TestProducer testProducer(KafkaTemplate<String, SkeletonCreatedEvent> kafkaTemplate) {
     return new TestProducer(topicName, kafkaTemplate);
   }
 

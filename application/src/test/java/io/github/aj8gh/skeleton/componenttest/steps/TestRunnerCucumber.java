@@ -1,5 +1,11 @@
 package io.github.aj8gh.skeleton.componenttest.steps;
 
+import static io.github.aj8gh.skeleton.componenttest.util.Constants.CUCUMBER;
+import static io.github.aj8gh.skeleton.componenttest.util.Constants.FEATURES;
+import static io.github.aj8gh.skeleton.componenttest.util.Constants.LISTENERS;
+import static io.github.aj8gh.skeleton.componenttest.util.Constants.PARTITIONS;
+import static io.github.aj8gh.skeleton.componenttest.util.Constants.PORT;
+import static io.github.aj8gh.skeleton.componenttest.util.Constants.TEST;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.DEFINED_PORT;
 
 import io.cucumber.spring.CucumberContextConfiguration;
@@ -14,16 +20,12 @@ import org.springframework.kafka.test.context.EmbeddedKafka;
 import org.springframework.test.context.ActiveProfiles;
 
 @Suite
-@IncludeEngines("cucumber")
-@SelectClasspathResource("features")
+@IncludeEngines(CUCUMBER)
+@SelectClasspathResource(FEATURES)
 @CucumberContextConfiguration
 @AutoConfigureEmbeddedDatabase
-@ActiveProfiles("test")
-@EmbeddedKafka(
-    brokerProperties = { "listeners=PLAINTEXT://localhost:9092", "port=9092" },
-    partitions = 1)
-@SpringBootTest(
-    classes = {Application.class, CucumberConfig.class},
-    webEnvironment = DEFINED_PORT)
+@ActiveProfiles(TEST)
+@EmbeddedKafka(brokerProperties = {LISTENERS}, ports = {PORT}, partitions = PARTITIONS)
+@SpringBootTest(classes = {Application.class, CucumberConfig.class}, webEnvironment = DEFINED_PORT)
 public class TestRunnerCucumber {
 }

@@ -1,8 +1,10 @@
 db:
   host: ${DB_HOST_NAME}
 
-kafka:
-  host-name: ${KAFKA_HOST_NAME}
-
-schema-registry:
-  host-name: ${SCHEMA_REGISTRY_HOST_NAME}
+spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    properties:
+      schema:
+        registry:
+          url: ${SCHEMA_REGISTRY_URL}

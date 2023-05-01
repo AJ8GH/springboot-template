@@ -15,7 +15,7 @@ public class Consumer {
   private final List<ConsumerRecord<String, SkeletonCreatedEvent>> records =
       new CopyOnWriteArrayList<>();
 
-  @KafkaListener(topics = "${kafka.topics.skeleton-created-v1.name}")
+  @KafkaListener(topics = "${spring.kafka.topics.skeleton-created-v1.name}")
   public void listen(ConsumerRecord<String, SkeletonCreatedEvent> record) {
     log.info("Received Message: {} => {}", record.key(), record.value());
     records.add(record);

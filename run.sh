@@ -1,11 +1,11 @@
 #!/bin/zsh
 
 _kafka() {
-  KAFKA_HOST_NAME="localhost" docker-compose up kafka
+  SCHEMA_REGISTRY_HOST_NAME="0.0.0.0" docker-compose up schema-registry
 }
 
 _kafka_detach() {
-  KAFKA_HOST_NAME="localhost" docker-compose up --detach kafka
+  SCHEMA_REGISTRY_HOST_NAME="0.0.0.0" docker-compose up --detach schema-registry
 }
 
 _postgres() {

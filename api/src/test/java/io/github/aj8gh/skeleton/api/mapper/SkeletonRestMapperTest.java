@@ -28,10 +28,7 @@ class SkeletonRestMapperTest {
   @Test
   void fromCreateRequest_HappyPath() {
     // Given
-    var request = new SkeletonCreateRequest()
-        .name(NAME)
-        .bones(BONES);
-
+    var request = buildCreateRequest();
     var expected = Skeleton.builder()
         .name(NAME)
         .bones(BONES)
@@ -47,25 +44,40 @@ class SkeletonRestMapperTest {
   @Test
   void toDto_HappyPath() {
     // Given
-    var model = Skeleton.builder()
-        .id(ID)
-        .name(NAME)
-        .bones(BONES)
-        .createdAt(NOW)
-        .updatedAt(NOW)
-        .build();
-
-    var expected = new SkeletonDto()
-        .id(ID)
-        .name(NAME)
-        .bones(BONES)
-        .createdAt(NOW)
-        .updatedAt(NOW);
+    var model = buildModel();
+    var expected = buildDto();
 
     // When
     var actual = mapper.toDto(model);
 
     // Then
     assertThat(actual).isEqualTo(expected);
+  }
+
+  private SkeletonCreateRequest buildCreateRequest() {
+    return SkeletonCreateRequest.builder()
+        .name(NAME)
+        .bones(BONES)
+        .build();
+  }
+
+  private SkeletonDto buildDto() {
+    return SkeletonDto.builder()
+        .id(ID)
+        .name(NAME)
+        .bones(BONES)
+        .createdAt(NOW)
+        .updatedAt(NOW)
+        .build();
+  }
+
+  private Skeleton buildModel() {
+    return Skeleton.builder()
+        .id(ID)
+        .name(NAME)
+        .bones(BONES)
+        .createdAt(NOW)
+        .updatedAt(NOW)
+        .build();
   }
 }
