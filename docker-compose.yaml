@@ -16,7 +16,11 @@ services:
     depends_on:
       db:
         condition: service_healthy
+      zookeeper:
+        condition: service_started
       kafka:
+        condition: service_started
+      schema-registry:
         condition: service_started
 
   db:
@@ -76,21 +80,4 @@ services:
       SCHEMA_REGISTRY_LISTENERS: http://${SCHEMA_REGISTRY_HOST_NAME}:8081
     depends_on:
       - kafka
-
-#  control-center:
-#    image: confluentinc/cp-enterprise-control-center:5.4.0
-#    hostname: control-center
-#    container_name: control-center
-#    depends_on:
-#      - schema-registry
-#    ports:
-#      - '9021:9021'
-#    environment:
-#      CONTROL_CENTER_BOOTSTRAP_SERVERS: kafka:9092
-#      CONTROL_CENTER_ZOOKEEPER_CONNECT: zookeeper:2181
-#      CONTROL_CENTER_SCHEMA_REGISTRY_URL: http://${SCHEMA_REGISTRY_HOST_NAME}:8081"
-#      CONTROL_CENTER_REPLICATION_FACTOR: 1
-#      CONTROL_CENTER_INTERNAL_TOPICS_PARTITIONS: 1
-#      CONTROL_CENTER_MONITORING_INTERCEPTOR_TOPIC_PARTITIONS: 1
-#      CONFLUENT_METRICS_TOPIC_REPLICATION: 1
-#      PORT: 9021
+      - zookeeper
