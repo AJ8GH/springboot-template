@@ -8,7 +8,7 @@
     <artifactId>spring-boot-starter-parent</artifactId>
     <groupId>org.springframework.boot</groupId>
     <relativePath/>
-    <version>3.0.6</version>
+    <version>3.1.0</version>
   </parent>
 
   <groupId>io.github.aj8gh</groupId>
@@ -53,23 +53,23 @@
     <assertj.version>3.24.2</assertj.version>
     <awaitility.version>4.2.0</awaitility.version>
     <checkstyle.version>0.0.3</checkstyle.version>
-    <cucumber.version>7.11.2</cucumber.version>
-    <embedded.database.version>2.2.0</embedded.database.version>
-    <jacoco.version>0.8.9</jacoco.version>
-    <jackson.version>2.14.2</jackson.version>
-    <junit.jupiter.version>5.9.2</junit.jupiter.version>
+    <cucumber.version>7.12.0</cucumber.version>
+    <embedded.database.version>2.3.0</embedded.database.version>
+    <jacoco.version>0.8.10</jacoco.version>
+    <jackson.version>2.15.1</jackson.version>
+    <junit.jupiter.version>5.9.3</junit.jupiter.version>
     <junit.platform.version>1.9.2</junit.platform.version>
-    <liquibase.version>4.21.1</liquibase.version>
+    <liquibase.version>4.22.0</liquibase.version>
     <log4j.version>2.20.0</log4j.version>
     <lombok.version>1.18.26</lombok.version>
-    <maven.assembly.version>3.5.0</maven.assembly.version>
+    <maven.assembly.version>3.6.0</maven.assembly.version>
     <maven.checkstyle.version>3.2.2</maven.checkstyle.version>
     <maven.enforcer.version>3.3.0</maven.enforcer.version>
     <maven.surefire.version>3.0.0-M9</maven.surefire.version>
     <mockito.version>5.3.1</mockito.version>
     <slf4j.version>2.0.6</slf4j.version>
-    <springboot.version>3.0.6</springboot.version>
-    <testcontainers.postgresql.version>1.18.0</testcontainers.postgresql.version>
+    <springboot.version>3.1.0</springboot.version>
+    <testcontainers.postgresql.version>1.18.1</testcontainers.postgresql.version>
     <wiremock.version>2.27.2</wiremock.version>
   </properties>
 
