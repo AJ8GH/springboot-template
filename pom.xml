@@ -91,7 +91,7 @@
     <springdoc.openapi.version>2.1.0</springdoc.openapi.version>
     <testcontainers.postgresql.version>1.18.0</testcontainers.postgresql.version>
     <swagger.annotations.version>2.2.10</swagger.annotations.version>
-    <testcontainers.postgresql.version>1.18.2</testcontainers.postgresql.version>
+    <testcontainers.postgresql.version>1.18.3</testcontainers.postgresql.version>
     <wiremock.version>2.27.2</wiremock.version>
   </properties>
 
