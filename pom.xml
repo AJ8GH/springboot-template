@@ -61,7 +61,7 @@
     <awaitility.version>4.2.0</awaitility.version>
     <checkstyle.version>0.0.3</checkstyle.version>
     <confluent.version>7.4.0</confluent.version>
-    <cucumber.version>7.12.0</cucumber.version>
+    <cucumber.version>7.12.1</cucumber.version>
     <cucumber.messages.version>22.0.0</cucumber.messages.version>
     <embedded.database.version>2.3.0</embedded.database.version>
     <hibernate.validator.version>8.0.0.Final</hibernate.validator.version>
