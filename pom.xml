@@ -90,7 +90,7 @@
     <springboot.version>3.1.0</springboot.version>
     <springdoc.openapi.version>2.1.0</springdoc.openapi.version>
     <testcontainers.postgresql.version>1.18.0</testcontainers.postgresql.version>
-    <swagger.annotations.version>2.2.11</swagger.annotations.version>
+    <swagger.annotations.version>2.2.12</swagger.annotations.version>
     <testcontainers.postgresql.version>1.18.3</testcontainers.postgresql.version>
     <wiremock.version>2.27.2</wiremock.version>
   </properties>
