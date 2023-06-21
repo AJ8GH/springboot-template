@@ -64,7 +64,7 @@
     <cucumber.version>7.12.1</cucumber.version>
     <cucumber.messages.version>22.0.0</cucumber.messages.version>
     <embedded.database.version>2.3.0</embedded.database.version>
-    <hibernate.validator.version>8.0.0.Final</hibernate.validator.version>
+    <hibernate.validator.version>8.0.1.Final</hibernate.validator.version>
     <jacoco.version>0.8.10</jacoco.version>
     <jackson.version>2.15.2</jackson.version>
     <jackson.annotations.version>2.15.2</jackson.annotations.version>
