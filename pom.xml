@@ -75,7 +75,7 @@
     <jsr305.version>3.0.2</jsr305.version>
     <junit.jupiter.version>5.9.3</junit.jupiter.version>
     <junit.platform.version>1.9.2</junit.platform.version>
-    <liquibase.version>4.22.0</liquibase.version>
+    <liquibase.version>4.23.0</liquibase.version>
     <log4j.version>2.20.0</log4j.version>
     <lombok.version>1.18.28</lombok.version>
     <mapstruct.version>1.5.5.Final</mapstruct.version>
@@ -90,7 +90,7 @@
     <springboot.version>3.1.1</springboot.version>
     <springdoc.openapi.version>2.1.0</springdoc.openapi.version>
     <testcontainers.postgresql.version>1.18.0</testcontainers.postgresql.version>
-    <swagger.annotations.version>2.2.13</swagger.annotations.version>
+    <swagger.annotations.version>2.2.14</swagger.annotations.version>
     <testcontainers.postgresql.version>1.18.3</testcontainers.postgresql.version>
     <wiremock.version>2.27.2</wiremock.version>
   </properties>
