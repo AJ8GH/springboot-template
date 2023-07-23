@@ -57,7 +57,7 @@
     <embedded.database.version>2.3.0</embedded.database.version>
     <jacoco.version>0.8.10</jacoco.version>
     <jackson.version>2.15.2</jackson.version>
-    <junit.jupiter.version>5.9.3</junit.jupiter.version>
+    <junit.jupiter.version>5.10.0</junit.jupiter.version>
     <junit.platform.version>1.9.2</junit.platform.version>
     <liquibase.version>4.23.0</liquibase.version>
     <log4j.version>2.20.0</log4j.version>
