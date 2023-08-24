@@ -8,7 +8,7 @@
     <artifactId>spring-boot-starter-parent</artifactId>
     <groupId>org.springframework.boot</groupId>
     <relativePath/>
-    <version>3.1.2</version>
+    <version>3.1.3</version>
   </parent>
 
   <groupId>io.github.aj8gh</groupId>
@@ -68,7 +68,7 @@
     <maven.surefire.version>3.0.0-M9</maven.surefire.version>
     <mockito.version>5.5.0</mockito.version>
     <slf4j.version>2.0.6</slf4j.version>
-    <springboot.version>3.1.2</springboot.version>
+    <springboot.version>3.1.3</springboot.version>
     <testcontainers.postgresql.version>1.19.0</testcontainers.postgresql.version>
     <wiremock.version>2.27.2</wiremock.version>
   </properties>
