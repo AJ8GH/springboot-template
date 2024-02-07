@@ -59,7 +59,7 @@
     <jackson.version>2.16.1</jackson.version>
     <junit.jupiter.version>5.10.2</junit.jupiter.version>
     <junit.platform.version>1.9.2</junit.platform.version>
-    <liquibase.version>4.25.1</liquibase.version>
+    <liquibase.version>4.26.0</liquibase.version>
     <log4j.version>2.20.0</log4j.version>
     <lombok.version>1.18.30</lombok.version>
     <maven.assembly.version>3.6.0</maven.assembly.version>
