@@ -56,7 +56,7 @@
     <cucumber.version>7.15.0</cucumber.version>
     <embedded.database.version>2.5.0</embedded.database.version>
     <jacoco.version>0.8.11</jacoco.version>
-    <jackson.version>2.16.2</jackson.version>
+    <jackson.version>2.17.0</jackson.version>
     <junit.jupiter.version>5.10.2</junit.jupiter.version>
     <junit.platform.version>1.9.2</junit.platform.version>
     <liquibase.version>4.26.0</liquibase.version>
