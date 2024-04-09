@@ -54,7 +54,7 @@
     <awaitility.version>4.2.1</awaitility.version>
     <checkstyle.version>0.0.3</checkstyle.version>
     <cucumber.version>7.16.1</cucumber.version>
-    <embedded.database.version>2.5.0</embedded.database.version>
+    <embedded.database.version>2.5.1</embedded.database.version>
     <jacoco.version>0.8.12</jacoco.version>
     <jackson.version>2.17.0</jackson.version>
     <junit.jupiter.version>5.10.2</junit.jupiter.version>
