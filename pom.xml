@@ -8,7 +8,7 @@
     <artifactId>spring-boot-starter-parent</artifactId>
     <groupId>org.springframework.boot</groupId>
     <relativePath/>
-    <version>3.2.4</version>
+    <version>3.2.5</version>
   </parent>
 
   <groupId>io.github.aj8gh</groupId>
@@ -53,7 +53,7 @@
     <assertj.version>3.25.3</assertj.version>
     <awaitility.version>4.2.1</awaitility.version>
     <checkstyle.version>0.0.3</checkstyle.version>
-    <cucumber.version>7.16.1</cucumber.version>
+    <cucumber.version>7.17.0</cucumber.version>
     <embedded.database.version>2.5.1</embedded.database.version>
     <jacoco.version>0.8.12</jacoco.version>
     <jackson.version>2.17.0</jackson.version>
@@ -68,7 +68,7 @@
     <maven.surefire.version>3.0.0-M9</maven.surefire.version>
     <mockito.version>5.11.0</mockito.version>
     <slf4j.version>2.0.6</slf4j.version>
-    <springboot.version>3.2.4</springboot.version>
+    <springboot.version>3.2.5</springboot.version>
     <testcontainers.postgresql.version>1.19.7</testcontainers.postgresql.version>
     <wiremock.version>3.0.1</wiremock.version>
   </properties>
