@@ -1,4 +1,4 @@
-FROM maven:3.9.6-amazoncorretto-17
+FROM maven:3.9.7-amazoncorretto-17
 WORKDIR /app
 COPY . /app
 RUN mvn -B clean package -DskipTests -Pdocker
