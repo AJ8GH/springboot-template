@@ -50,7 +50,7 @@
     <jacoco.haltOnFailure>false</jacoco.haltOnFailure>
 
     <!-- Versions -->
-    <assertj.version>3.26.0</assertj.version>
+    <assertj.version>3.26.3</assertj.version>
     <awaitility.version>4.2.1</awaitility.version>
     <checkstyle.version>0.0.3</checkstyle.version>
     <cucumber.version>7.18.0</cucumber.version>
