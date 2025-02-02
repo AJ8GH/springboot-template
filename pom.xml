@@ -8,7 +8,7 @@
     <artifactId>spring-boot-starter-parent</artifactId>
     <groupId>org.springframework.boot</groupId>
     <relativePath/>
-    <version>3.3.2</version>
+    <version>3.4.2</version>
   </parent>
 
   <groupId>io.github.aj8gh</groupId>
@@ -50,26 +50,26 @@
     <jacoco.haltOnFailure>false</jacoco.haltOnFailure>
 
     <!-- Versions -->
-    <assertj.version>3.26.3</assertj.version>
-    <awaitility.version>4.2.1</awaitility.version>
+    <assertj.version>3.27.3</assertj.version>
+    <awaitility.version>4.2.2</awaitility.version>
     <checkstyle.version>0.0.3</checkstyle.version>
-    <cucumber.version>7.18.1</cucumber.version>
-    <embedded.database.version>2.5.1</embedded.database.version>
+    <cucumber.version>7.21.0</cucumber.version>
+    <embedded.database.version>2.6.0</embedded.database.version>
     <jacoco.version>0.8.12</jacoco.version>
-    <jackson.version>2.17.2</jackson.version>
-    <junit.jupiter.version>5.10.3</junit.jupiter.version>
+    <jackson.version>2.18.2</jackson.version>
+    <junit.jupiter.version>5.11.4</junit.jupiter.version>
     <junit.platform.version>1.9.2</junit.platform.version>
-    <liquibase.version>4.28.0</liquibase.version>
+    <liquibase.version>4.31.0</liquibase.version>
     <log4j.version>2.20.0</log4j.version>
-    <lombok.version>1.18.34</lombok.version>
+    <lombok.version>1.18.36</lombok.version>
     <maven.assembly.version>3.7.1</maven.assembly.version>
-    <maven.checkstyle.version>3.4.0</maven.checkstyle.version>
+    <maven.checkstyle.version>3.6.0</maven.checkstyle.version>
     <maven.enforcer.version>3.5.0</maven.enforcer.version>
     <maven.surefire.version>3.0.0-M9</maven.surefire.version>
-    <mockito.version>5.12.0</mockito.version>
+    <mockito.version>5.15.2</mockito.version>
     <slf4j.version>2.0.6</slf4j.version>
-    <springboot.version>3.3.2</springboot.version>
-    <testcontainers.postgresql.version>1.20.0</testcontainers.postgresql.version>
+    <springboot.version>3.4.2</springboot.version>
+    <testcontainers.postgresql.version>1.20.4</testcontainers.postgresql.version>
     <wiremock.version>3.0.1</wiremock.version>
   </properties>
 
